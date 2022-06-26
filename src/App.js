@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCookies } from "react-cookie";
+import { Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import LoginRedirect from "./pages/LoginRedirect";
+import Register from "./pages/Register";
 
 function App() {
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login setCookie={setCookie} />} />
+        <Route path="/register" element={<Register cookies={cookies} />} />
+        <Route
+          path="/dashboard"
+          element={<Dashboard cookies={cookies} removeCookie={removeCookie} />}
+        />
+        <Route
+          path="/connect/:providerName"
+          element={<LoginRedirect setCookie={setCookie} />}
+        />
+      </Routes>
     </div>
   );
 }
