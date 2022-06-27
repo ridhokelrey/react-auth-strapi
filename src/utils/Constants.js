@@ -1,7 +1,7 @@
 const prod = {
   url: {
     REACT_URL: "https://react-auth-strapi.vercel.app",
-    STRAPI_URL: "https://obscure-shelf-41704.herokuapp.com/",
+    STRAPI_URL: "https://obscure-shelf-41704.herokuapp.com",
   },
 };
 const dev = {
