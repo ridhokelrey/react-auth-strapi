@@ -44,51 +44,46 @@ export default function Dashboard({ cookies, removeCookie }) {
           style={{ height: "90.5vh" }}
           x-show="asideOpen"
         >
-          <a
-            href="#"
+          <button
             className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
           >
             <span className="text-2xl">
               <i className="bx bx-home" />
             </span>
             <span>Dashboard</span>
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
             className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
           >
             <span className="text-2xl">
               <i className="bx bx-cart" />
             </span>
             <span>Cart</span>
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
             className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
           >
             <span className="text-2xl">
               <i className="bx bx-shopping-bag" />
             </span>
             <span>Shopping</span>
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
             className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
           >
             <span className="text-2xl">
               <i className="bx bx-heart" />
             </span>
             <span>My Favourite</span>
-          </a>
-          <a
-            href="#"
+          </button>
+          <button
             className="flex items-center space-x-1 rounded-md px-2 py-3 hover:bg-gray-100 hover:text-blue-600"
           >
             <span className="text-2xl">
               <i className="bx bx-user" />
             </span>
             <span>Profile</span>
-          </a>
+          </button>
         </aside>
 
         <div className="w-full p-4">

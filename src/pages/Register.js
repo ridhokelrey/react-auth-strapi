@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { config } from "../utils/Constants";
 
 export default function Register({ cookies }) {
   const [form, setForm] = useState({});
@@ -7,6 +8,7 @@ export default function Register({ cookies }) {
   const [success, setSuccess] = useState(false);
 
   let navigate = useNavigate()
+  const url = config.url.STRAPI_URL
 
   const setValue = (e) => {
     const target = e.target;
@@ -32,7 +34,7 @@ export default function Register({ cookies }) {
     setLoading(true);
 
     const req = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/auth/local/register`,
+      `${url}/api/auth/local/register`,
       {
         method: "POST",
         headers: {

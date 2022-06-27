@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { config } from "../utils/Constants";
 
 export default function Login({ setCookie }) {
   const [form, setForm] = useState({});
   const [loading, setLoading] = useState(false);
+
+  const url = config.url.STRAPI_URL
 
   const setValue = (e) => {
     const target = e.target;
@@ -19,7 +22,7 @@ export default function Login({ setCookie }) {
     setLoading(true);
 
     const req = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/auth/local`,
+      `${url}/api/auth/local`,
       {
         method: "POST",
         headers: {
@@ -76,7 +79,7 @@ export default function Login({ setCookie }) {
           </form>
           <div className="p-5">
             <a
-              href={process.env.REACT_APP_BACKEND_URL + "/api/connect/github"}
+              href={url + "/api/connect/github"}
               className="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block"
             >
               Login with{" "}

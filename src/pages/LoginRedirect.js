@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { config } from "../utils/Constants";
 
 export default function LoginRedirect({ setCookie }) {
   const { providerName } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
-  let navigate = useNavigate()
+  const [searchParams] = useSearchParams();
+
+  let navigate = useNavigate();
+  const url = config.url.STRAPI_URL;
 
   useEffect(() => {
     const altLogin = async () => {
       const req = await fetch(
-        `${
-          process.env.REACT_APP_BACKEND_URL
-        }/api/auth/${providerName}/callback?access_token=${searchParams.get(
+        `${url}/api/auth/${providerName}/callback?access_token=${searchParams.get(
           "access_token"
         )}`
       );
@@ -21,11 +22,15 @@ export default function LoginRedirect({ setCookie }) {
 
       if (res.jwt) {
         setCookie("token", res.jwt, { path: "/" });
-        return navigate('/dashboard')
+        return navigate("/dashboard");
       }
     };
     altLogin();
   });
 
-  return <div className="h-screen w-screen flex justify-center items-center flex-col text-4xl">Login With {providerName}</div>;
+  return (
+    <div className="h-screen w-screen flex justify-center items-center flex-col text-4xl">
+      Login With {providerName}
+    </div>
+  );
 }
