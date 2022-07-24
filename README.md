@@ -45,8 +45,8 @@ npx create-strapi-app my-project --quickstart
 - Visit the User Permissions provider settings page
 http://localhost:1337/admin/settings/users-permissions/providers
 - Click on the GitHub provider
-- Fill the information (replace with your own client ID and secret):
+- Fill the information (replace with your own client ID and secret from OAuth Apps config above):
     - Enable: ON
-    - Client ID: 53de5258f8472c140917
+    - Client ID: 53de5258f8472c140917 
     - Client Secret: fb9d0fe1d345d9ac7f83d7a1e646b37c554dae8b
     - The redirect URL to your front-end app: http://localhost:3000/connect/github
